@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+<meta content="en-us" http-equiv="Content-Language"/>
+<title> Pulso - Web Font Specimen</title>
+<link rel="stylesheet" type="text/css" media="screen" href="fonts.css" />
+<script>
+// ID auto para P
+window.onload = function() {
+    var buttons = document.getElementsByTagName("p"),
+        len = buttons !== null ? buttons.length : 0,
+        i = 0;
+    for(i; i < len; i++) {
+        buttons[i].id += i; 
+    }
+}
+
+// Show Code Func
+function showCode(elemento) {
+    var parentID = elemento.nextElementSibling.id;
+	var container = document.getElementById(parentID);
+        if (elemento.nextElementSibling.tagName == "P") {
+            firstChild = container.previousSibling;
+            if (container && firstChild) {
+                var eFamily = document.getElementById(parentID).style.fontFamily;
+                var eWeight = document.getElementById(parentID).style.fontWeight;
+                var eStyle = document.getElementById(parentID).style.fontStyle;
+                var newPre = document.createElement('pre');
+                newPre.innerHTML = "font-family: "+eFamily+";" + "\n" + "font-weight: "+eWeight+";" + "\n" + "font-style: "+eStyle+";";  
+                firstChild.parentNode.insertBefore(newPre, firstChild);
+                elemento.innerHTML = "Show code"
+           };
+        } else {
+            elemento.innerHTML = "Hide code"
+            elemento.nextElementSibling.remove()
+        };
+};
+</script>
+<style type="text/css" media="screen">
+* {box-sizing: border-box;}
+html{ background-color: #fafafa; color: #3C4151; }
+pre {background-color: #d7f4f7; font-size: 18px; line-height: 1.6; font-family: 'Monaco', monospace; font-weight: normal; font-style: normal; padding: 1em;}
+body { margin: auto; padding: 2em; height: 100%; width: 90%; max-width: 960px; font-smoothing: antialiased; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+	}
+h1 {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+p {
+	margin-top: 0.5rem;
+	font-size: 36px; 
+}
+</style>
+</head>
+<body>
+<h1>Pulso – Web Font Specimen</h1>
+
+ <button onclick="showCode(this)">Show code</button>
+    <p contenteditable="true" style="font-family: 'Pulso'; font-weight: 400; font-style:normal">Lorem ipsum dolor sit amet consectetur adipisicing elit Nam necessitatibus voluptas voluptatum itaque neque ea quia facere ullam vitae sint quo sed porro Nobis sint voluptas natus itaque minus tempora</p>
+     <button onclick="showCode(this)">Show code</button>
+    <p contenteditable="true" style="font-family: 'Pulso'; font-weight: 400; font-style:normal">Lorem ipsum dolor sit amet consectetur adipisicing elit Nam necessitatibus voluptas voluptatum itaque neque ea quia facere ullam vitae sint quo sed porro Nobis sint voluptas natus itaque minus tempora</p>
+    
+
+</body>
+</html>
